@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidStudioProject</string>
+    <string name="register">Register</string>
+    <string name="let_s_get_you_settled_in_and_start_shopiing_right_away">Let\'s get you settled in and start shopiing right away.</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="login">Login</string>
+    <string name="euphoria">Euphoria</string>
+</resources>
