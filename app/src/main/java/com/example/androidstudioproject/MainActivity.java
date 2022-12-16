@@ -17,7 +17,7 @@ import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView img;
+    private ImageView img,img1,img2,img3;
     private Animation flying;
 
     @SuppressLint("MissingInflatedId")
@@ -29,9 +29,14 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
         img = findViewById(R.id.img);
+        img1 =findViewById(R.id.img1);
+        img2 =findViewById(R.id.img2);
+        img3 = findViewById(R.id.img3);
         flying = AnimationUtils.loadAnimation(this, R.anim.flying_animation);
         img.setAnimation(flying);
-
+      //  img1.setAnimation(flying);
+       // img2.setAnimation(flying);
+        //img3.setAnimation(flying);
     }
 
     public void btnOpenLoginPage(View view) {
