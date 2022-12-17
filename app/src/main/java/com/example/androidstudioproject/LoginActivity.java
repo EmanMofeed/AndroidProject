@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         List<SignUp> data = signUpData.getData();
         boolean flagEmail = false;
         for (int i = 0; i < data.size(); i++) {
-            if(data.get(i).getEmail().equals(email)){
+            if(data.get(i).getEmail().equalsIgnoreCase(email)){
                 if(data.get(i).getPassword().equals(password)) {
                     startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
                     flagEmail = true;

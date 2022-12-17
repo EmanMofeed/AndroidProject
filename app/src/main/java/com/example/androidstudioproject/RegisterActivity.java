@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void checkUserInformation(String email) {
         List<SignUp> data = signUpData.getData();
         for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).getEmail().equals(email)) {
+            if (data.get(i).getEmail().equalsIgnoreCase(email)) {
                 showError(inputPassword, "This user is already exist");
                 break;
             } else {
