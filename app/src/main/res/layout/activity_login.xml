@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn"
+        android:onClick="btnLogin"
         android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/forgetPassword"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
