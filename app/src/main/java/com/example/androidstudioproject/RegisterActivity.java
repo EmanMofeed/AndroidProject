@@ -3,6 +3,7 @@ package com.example.androidstudioproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,14 +12,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidstudioproject.model.SignUp;
+import com.example.androidstudioproject.model.SignUpData;
+
 import org.w3c.dom.Text;
 
+import java.util.List;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextView textViewLogin ;
     private EditText inputUserName,inputPassword,inputEmail,inputConfirmPassword;
     private Button btnRegister;
+    SignUpData signUpData = new SignUpData();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +65,30 @@ public class RegisterActivity extends AppCompatActivity {
         else if (confirmPassword.isEmpty() || !confirmPassword.equals(password)){
             showError(inputConfirmPassword,"Password not match");
         }else {
-            startActivity(new Intent(RegisterActivity.this,HomePageActivity.class));
+            checkUserInformation(email);
         }
 
 
     }
 
-    private void showError(EditText input, String error) {
+    private void checkUserInformation(String email) {
+        List<SignUp> data = signUpData.getData();
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getEmail().equals(email)) {
+                showError(inputPassword, "This user is already exist");
+                break;
+            } else {
+                SignUp newUser = new SignUp(inputUserName.getText().toString(),inputEmail.getText().toString(),inputPassword.getText().toString());
+                signUpData.setData(newUser);
+                startActivity(new Intent(RegisterActivity.this, HomePageActivity.class));
+
+            }
+        }
+    }
+
+
+
+private void showError(EditText input, String error) {
         input.setError(error);
         //it will help us to show the error
         input.requestFocus();
