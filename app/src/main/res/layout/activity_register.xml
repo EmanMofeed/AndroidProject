@@ -9,25 +9,28 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="60dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center"
         android:text="@string/register"
-        android:textColor="#6B425C"
-        android:textSize="34sp"
+        android:textColor="#885B78"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
+        app:layout_constraintVertical_bias="0.137" />
 
     <EditText
         android:id="@+id/inputUserName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="354dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/input_dg"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:ems="10"
@@ -38,14 +41,14 @@
         android:paddingBottom="10dp"
         android:textColorHint="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/inputEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_dg"
         android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -63,8 +66,8 @@
 
     <EditText
         android:id="@+id/inputConfirmPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="356dp"
+        android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_dg"
         android:drawableLeft="@drawable/ic_baseline_security_24"
@@ -82,8 +85,8 @@
 
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="351dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_dg"
         android:drawableLeft="@drawable/ic_baseline_security_24"
@@ -104,8 +107,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/btn"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/purple"
         android:text="@string/register"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
         app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword" />
