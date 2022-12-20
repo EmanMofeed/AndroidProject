@@ -9,14 +9,16 @@ import android.view.WindowManager;
 
 import com.example.androidstudioproject.model.anime;
 
+import java.util.Objects;
+
 public class animeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anime);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recycler = findViewById(R.id.anime_recycler);
 
         String[] captions = new String[anime.animes.length];

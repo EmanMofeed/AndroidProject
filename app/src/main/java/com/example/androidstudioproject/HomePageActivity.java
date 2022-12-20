@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import java.util.Objects;
+
 public class HomePageActivity extends AppCompatActivity {
     private Button Kbtn;
     private Button Abtn;
@@ -15,9 +17,8 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Kbtn = findViewById(R.id.Kbtn);
         Kbtn.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,5 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
-    }
     }
 }

@@ -9,14 +9,16 @@ import android.view.WindowManager;
 
 import com.example.androidstudioproject.model.kpop;
 
+import java.util.Objects;
+
 public class kpopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kpop);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recyclerK = findViewById(R.id.kpop_recycler);
 
         String[] names = new String[kpop.kpops.length];

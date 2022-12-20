@@ -20,10 +20,12 @@
 
     <Button
         android:id="@+id/Kbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn"
-        android:text="Kpop Products!"
+        android:layout_width="185dp"
+        android:layout_height="63dp"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/purple"
+        android:text="@string/kpop_products"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -46,10 +48,12 @@
 
     <Button
         android:id="@+id/Abtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn"
-        android:text="Anime Products!"
+        android:layout_width="194dp"
+        android:layout_height="64dp"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/purple"
+        android:text="@string/anime_products"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
