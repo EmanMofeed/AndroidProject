@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,7 +35,6 @@ public class ProductDetails extends AppCompatActivity {
     private int numOfItems;
     private int imgIdFromIntent;
 
-//    private ImageView addAnotherItem;
 
     //TODO: get data from productsData class to show it in txtDetails below (method)
     @Override
@@ -54,18 +52,13 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addToCartBtn.setText("Added");
-                anime animeobj=new anime();
                 String price2 =  txtPrice.getText().toString();
                 price2 = price2.replaceAll("₪","");
                 double price = Double.parseDouble(price2);
-
-                anime anime= new anime(txtTitle.getText().toString(), imgIdFromIntent, price,numOfItems); ;
-
+                anime anime= new anime(txtTitle.getText().toString(), imgIdFromIntent, price,numOfItems,txtDetails.getText().toString()); ;
                 Log.d("imgId arrayList",productImg.getId()+"");
-//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
                 cartAnimeArraylist.add(anime);
 
-//        Log.d("name",cartAnimeArraylist.get(i).getName());
             }  });
 
     }
@@ -95,11 +88,11 @@ public class ProductDetails extends AppCompatActivity {
         String name = intent.getStringExtra("NAME");
         imgIdFromIntent = intent.getIntExtra("IMAGEID",0);
         double price = intent.getDoubleExtra("PRICE",0.0);
-
-        //txtDetails.setText(p.getDesc());
+        String description = intent.getStringExtra("DESCRIPTION");
         productImg.setImageResource(imgIdFromIntent);
         txtPrice.setText("₪"+price);
         txtTitle.setText(name);
+        txtDetails.setText(description);
     }
 
 
@@ -116,20 +109,6 @@ public class ProductDetails extends AppCompatActivity {
         txtNumberOFItems.setText(numOfItems+"");
 
     }
-
-//    public void addToCart(View view) {
-//        String price2 =  txtPrice.getText().toString();
-//        price2 = price2.replaceAll("₪","");
-//        double price = Double.parseDouble(price2);
-////        anime anime = new anime(txtTitle.getText().toString(),productImg.getId(),price,numOfItems);
-//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
-////        cartAnimeArraylist.add(anime);
-////        int i=0;
-////        Toast.makeText(this,  cartAnimeArraylist.get(i).getName().toString(), Toast.LENGTH_SHORT).show();
-////        Intent intent = new Intent(ProductDetails.this, cartActivity.class);
-////        startActivity(intent);
-//
-//    }
 
 
 }

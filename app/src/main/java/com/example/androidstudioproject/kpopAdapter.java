@@ -53,9 +53,12 @@ public class kpopAdapter extends RecyclerView.Adapter<kpopAdapter.ViewHolder>{
                 String name = kpopData[pos].getName();
                 int imageId = kpopData[pos].getImageId();
                 double price = kpopData[pos].getPrice();
+                String description = kpopData[pos].getDescription();
+
                 i.putExtra("NAME",name);
                 i.putExtra("IMAGEID",imageId);
                 i.putExtra("PRICE",price);
+                i.putExtra("DESCRIPTION",description);
                 kpopContext.startActivity(i);
             }
         });

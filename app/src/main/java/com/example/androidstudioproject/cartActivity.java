@@ -24,7 +24,6 @@ import java.util.Objects;
 
 public class cartActivity extends AppCompatActivity {
 
-//    public itemData[] data= new itemData[itemData.items.length];
 
 
     Dialog address_dialog;
@@ -55,13 +54,9 @@ public class cartActivity extends AppCompatActivity {
         address_dialog=new Dialog(cartActivity.this);
         //we declared the button of the dialog here because now we declared the dialog
         Button okBtn=address_dialog.findViewById(R.id.okBtn);
-//        ImageView carImage=address_dialog.findViewById(R.id.carImage);
-//        carAnim=android.view.animation.AnimationUtils.loadAnimation(address_dialog.getContext(), R.anim.car_anim);
-//        carImage.setAnimation(carAnim);
         address_dialog.setContentView(R.layout.address_dilog);
         address_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.address_background));
         address_dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-//       address_dialog.setCancelable(false);
         address_dialog.getWindow().getAttributes().windowAnimations=R.style.animation;
 
         checkOutBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,10 +65,6 @@ public class cartActivity extends AppCompatActivity {
                 address_dialog.show();
             }
         });
-//        for(int i = 0; i<data.length;i++){
-//            data[i]=new itemData(itemData.items[i].getName(),itemData.items[i].getCategory(),itemData.items[i].getImage()
-//                    ,itemData.items[i].getPrice(),itemData.items[i].getQuantity());
-//        }
 
         cartRecycler.setLayoutManager(new LinearLayoutManager(this));
         //we send to the adapter: array of data+totalPriceTextView+totalPriceAfterFeeTextView
