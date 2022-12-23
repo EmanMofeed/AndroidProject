@@ -25,8 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
 
     SharedPreferences preferences;
-
-    private String username,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

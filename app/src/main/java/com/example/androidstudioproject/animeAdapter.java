@@ -51,14 +51,17 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
             @Override
             public void onClick(View view) {
                 int pos= holder.getPosition();
-//                Toast.makeText(animeContext, animeData[pos].getName(), Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(animeContext,ProductDetails.class);
                 String name = animeData[pos].getName();
                 int imageId = animeData[pos].getImageId();
                 double price = animeData[pos].getPrice();
+                String description = animeData[pos].getDescription();
+
                 i.putExtra("NAME",name);
                 i.putExtra("IMAGEID",imageId);
                 i.putExtra("PRICE",price);
+                i.putExtra("DESCRIPTION",description);
+
                 animeContext.startActivity(i);
             }
         });

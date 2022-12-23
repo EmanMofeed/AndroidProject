@@ -28,7 +28,7 @@ public class kpopActivity extends AppCompatActivity {
 
         Context kpopContext=kpopActivity.this;
         for(int i = 0; i<kpopData.length;i++){
-            kpopData[i]=new kpop(kpop.kpops[i].getName(),kpop.kpops[i].getImageId(),kpop.kpops[i].getPrice());
+            kpopData[i]=new kpop(kpop.kpops[i].getName(),kpop.kpops[i].getImageId(),kpop.kpops[i].getPrice(),kpop.kpops[i].getDescription());
         }
 
 

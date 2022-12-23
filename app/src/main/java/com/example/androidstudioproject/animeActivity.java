@@ -1,14 +1,10 @@
 package com.example.androidstudioproject;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 
 import com.example.androidstudioproject.model.anime;
 
@@ -27,7 +23,7 @@ public class animeActivity extends AppCompatActivity {
 
         Context animeContext=animeActivity.this;
         for(int i = 0; i<animeData.length;i++){
-            animeData[i]=new anime(anime.animes[i].getName(),anime.animes[i].getImageId(),anime.animes[i].getPrice());
+            animeData[i]=new anime(anime.animes[i].getName(),anime.animes[i].getImageId(),anime.animes[i].getPrice(),anime.animes[i].getDescription());
         }
 
 
