@@ -1,12 +1,16 @@
 package com.example.androidstudioproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,9 +20,11 @@ import com.example.androidstudioproject.model.kpop;
 
 public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
     private anime[] animeData;
+    Context animeContext;
 
-    public animeAdapter(anime[]animeData){
+    public animeAdapter(anime[]animeData,Context animeContext){
         this.animeData=animeData;
+        this.animeContext=animeContext;
 
     }
     @Override
@@ -41,18 +47,23 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
         TextView Pritxt = (TextView)cardView.findViewById(R.id.txtprice);
         Pritxt.setText(animeData[position].getPrice());
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos= holder.getPosition();
+                Toast.makeText(animeContext, animeData[pos].getName(), Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(animeContext,HomePageActivity.class);
+                animeContext.startActivity(i);
 
-//        cardView.setOnClickListener( new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-////               int pos= holder.getPosition();
-////               Intent i=new Intent(animeContext,test.class);
-//////               i.putExtra("name",captions[pos]) ;
-////               animeContext.startActivity(i);
-//
-//            }
-//        });
+            }
+        });
+
     }
+
+
+
+
+
 
     @Override
     public int getItemCount() {

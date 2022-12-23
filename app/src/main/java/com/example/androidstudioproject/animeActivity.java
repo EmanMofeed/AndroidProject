@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 
 import com.example.androidstudioproject.model.anime;
 
@@ -22,12 +25,14 @@ public class animeActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recycler = findViewById(R.id.anime_recycler);
 
+        Context animeContext=animeActivity.this;
         for(int i = 0; i<animeData.length;i++){
             animeData[i]=new anime(anime.animes[i].getName(),anime.animes[i].getImageId(),anime.animes[i].getPrice());
         }
 
+
         recycler.setLayoutManager(new GridLayoutManager(this,2));
-        animeAdapter adapter = new animeAdapter(animeData);
+        animeAdapter adapter = new animeAdapter(animeData,animeContext);
         recycler.setAdapter(adapter);
     }
 
