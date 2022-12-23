@@ -16,7 +16,7 @@ public class SignUpData {
         data.add(new SignUp("EmanKhalaf", "eman@gmail.com", "123456789"));
         data.add(new SignUp("MayAwadallah", "may@gmail.com", "123456789"));
         data.add(new SignUp("TalaAlawneh", "tala@gmail.com", "123456789"));
-        data.add(new SignUp("TmaraAlawe", "Tmara@gmail.com", "123456789"));
+        data.add(new SignUp("TmaraAlawi", "tamara@gmail.com", "123456789"));
         return data;
     }
 

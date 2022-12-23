@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -19,6 +20,8 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     private ImageView img,img1,img2,img3;
     private Animation flying;
+
+    private ImageView instagram;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
         img1.setAnimation(flying);
         img2.setAnimation(flying);
         img3.setAnimation(flying);
+
+        instagram=findViewById(R.id.imgInstagram);
+        instagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToLink("https://www.instagram.com/___euphoria___1/");
+            }
+        });
+    }
+
+    private void goToLink(String link){
+        Uri uri = Uri.parse(link);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 
     public void btnOpenLoginPage(View view) {

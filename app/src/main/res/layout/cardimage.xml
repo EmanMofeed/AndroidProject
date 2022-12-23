@@ -4,8 +4,8 @@
     android:id="@+id/card_view"
     android:layout_width="180dp"
     android:layout_height="190dp"
-    android:layout_margin="15dp"
     card_view:cardElevation="3dp"
+    android:layout_margin="8dp"
     card_view:cardCornerRadius="10dp"
     >
 
