@@ -51,7 +51,7 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
             @Override
             public void onClick(View view) {
                 int pos= holder.getPosition();
-                Toast.makeText(animeContext, animeData[pos].getName(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(animeContext, animeData[pos].getName(), Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(animeContext,ProductDetails.class);
                 String name = animeData[pos].getName();
                 int imageId = animeData[pos].getImageId();

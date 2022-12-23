@@ -23,14 +23,15 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="381dp"
-        android:layout_height="595dp"
+        android:layout_width="363dp"
+        android:layout_height="585dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.165">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,8 +77,8 @@
 
                 <ImageView
                     android:id="@+id/imgPlus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="89dp"
+                    android:layout_height="44dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/anime_products"
                     android:onClick="addAnotherItem"
@@ -86,8 +87,8 @@
 
                 <TextView
                     android:id="@+id/numOfItems"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="73dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="1"
                     android:textAlignment="center"
@@ -97,11 +98,11 @@
 
                 <ImageView
                     android:id="@+id/imgMinus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="reduceOneItem"
                     android:contentDescription="@string/anime_products"
+                    android:onClick="reduceOneItem"
                     app:srcCompat="@drawable/ic_baseline_indeterminate_check_box_24"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
@@ -109,7 +110,7 @@
             <TextView
                 android:id="@+id/txtDescription"
                 android:layout_width="363dp"
-                android:layout_height="74dp"
+                android:layout_height="67dp"
                 android:layout_margin="10dp"
                 android:layout_marginStart="8dp"
                 android:text="Description"
