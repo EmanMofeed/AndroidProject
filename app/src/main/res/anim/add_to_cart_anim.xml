@@ -3,7 +3,7 @@
     android:duration="100"
     android:fromDegrees="-5"
     android:toDegrees="5"
-    android:pivotX="50%"
+    android:pivotX="-50%"
     android:pivotY="50%"
     android:repeatCount="infinite"
     android:repeatMode="reverse"

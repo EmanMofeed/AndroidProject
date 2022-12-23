@@ -50,7 +50,6 @@ public class kpopAdapter extends RecyclerView.Adapter<kpopAdapter.ViewHolder>{
             public void onClick(View view){
                 int pos= holder.getPosition();
                 Intent i=new Intent(kpopContext,ProductDetails.class);
-                kpopContext.startActivity(i);
                 String name = kpopData[pos].getName();
                 int imageId = kpopData[pos].getImageId();
                 double price = kpopData[pos].getPrice();

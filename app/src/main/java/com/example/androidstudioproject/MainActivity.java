@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         img2 =findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
         flying = AnimationUtils.loadAnimation(this, R.anim.flying_animation);
-        img.setAnimation(flying);
-      //  img1.setAnimation(flying);
-       // img2.setAnimation(flying);
-        //img3.setAnimation(flying);
+//        img.setAnimation(flying);
+        img1.setAnimation(flying);
+        img2.setAnimation(flying);
+        img3.setAnimation(flying);
     }
 
     public void btnOpenLoginPage(View view) {

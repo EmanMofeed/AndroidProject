@@ -28,7 +28,6 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:layout_constraintVertical_bias="0.0">
@@ -63,10 +62,11 @@
             <ImageView
                 android:id="@+id/imgProduct"
                 android:layout_width="match_parent"
-                android:layout_height="374dp"
+                android:layout_height="335dp"
                 android:layout_marginTop="10dp"
                 android:maxWidth="500sp"
                 android:maxHeight="500sp"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/bt21" />
 
             <LinearLayout
@@ -109,8 +109,8 @@
 
             <TextView
                 android:id="@+id/txtDescription"
-                android:layout_width="363dp"
-                android:layout_height="67dp"
+                android:layout_width="323dp"
+                android:layout_height="104dp"
                 android:layout_margin="10dp"
                 android:layout_marginStart="8dp"
                 android:text="Description"
@@ -156,7 +156,7 @@
         android:layout_height="36dp"
         app:layout_constraintBottom_toTopOf="@+id/imgCart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toEndOf="@+id/btnAddToCart"
         app:layout_constraintTop_toTopOf="@+id/btnAddToCart"
         app:layout_constraintVertical_bias="1.0"
