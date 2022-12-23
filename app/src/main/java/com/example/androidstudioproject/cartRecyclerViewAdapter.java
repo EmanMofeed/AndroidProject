@@ -52,10 +52,10 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
         TextView totalPriceForEach=cardView.findViewById(R.id.totalPriceTextView);
 
         //give each component in each card its value
-//        int imgViewId=cartAnime.get(position).getImageId();
-//        Log.d("Image ID in RV",imgViewId+"");
-//        Drawable dr= ContextCompat.getDrawable(holder.cardView.getContext(),imgViewId);
-//        itemImg.setImageDrawable(dr);
+        int imgViewId=cartAnime.get(position).getImageId();
+
+        Drawable dr= ContextCompat.getDrawable(holder.cardView.getContext(),imgViewId);
+        itemImg.setImageDrawable(dr);
         nameTxt.setText(cartAnime.get(position).getName());
         price.setText(cartAnime.get(position).getPrice()+"");
         quantity.setText(cartAnime.get(position).getQuantity()+"");

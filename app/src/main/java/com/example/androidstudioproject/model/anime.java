@@ -38,6 +38,8 @@ public class anime {
         this.price = price;
         this.quantity=quantity;
     }
+    public anime() {
+    }
     public anime(String name, int imageId, double price,int quantity) {
         this.name = name;
         this.imageId = imageId;

@@ -34,6 +34,7 @@ public class ProductDetails extends AppCompatActivity {
     private TextView txtNumberOFItems;
     private Button addToCartBtn;
     private int numOfItems;
+    private int imgIdFromIntent;
 
 //    private ImageView addAnotherItem;
 
@@ -48,6 +49,25 @@ public class ProductDetails extends AppCompatActivity {
         numOfItems=Integer.parseInt((String) txtNumberOFItems.getText());
         setDetails();
 
+        //ADD to cart
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addToCartBtn.setText("Added");
+                anime animeobj=new anime();
+                String price2 =  txtPrice.getText().toString();
+                price2 = price2.replaceAll("₪","");
+                double price = Double.parseDouble(price2);
+
+                anime anime= new anime(txtTitle.getText().toString(), imgIdFromIntent, price,numOfItems); ;
+
+                Log.d("imgId arrayList",productImg.getId()+"");
+//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
+                cartAnimeArraylist.add(anime);
+
+//        Log.d("name",cartAnimeArraylist.get(i).getName());
+            }  });
+
     }
 
 
@@ -61,25 +81,6 @@ public class ProductDetails extends AppCompatActivity {
         productImg=findViewById(R.id.imgProduct);
         txtPrice=findViewById(R.id.txtPrice);
         addToCartBtn=findViewById(R.id.btnAddToCart);
-        //ADD to cart
-    addToCartBtn.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        addToCartBtn.setText("Added");
-        Toast.makeText(ProductDetails.this,"clicked", Toast.LENGTH_SHORT).show();
-        String price2 =  txtPrice.getText().toString();
-        price2 = price2.replaceAll("₪","");
-        double price = Double.parseDouble(price2);
-        anime anime= new anime(txtTitle.getText().toString(),productImg.getId(),price,numOfItems); ;
-
-        Log.d("imgId arrayList",productImg.getId()+"");
-//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
-        cartAnimeArraylist.add(anime);
-
-//        Log.d("name",cartAnimeArraylist.get(i).getName());
-    }
-});
-
 
     }
 
@@ -92,11 +93,11 @@ public class ProductDetails extends AppCompatActivity {
     private void setDetails() {
         Intent intent = getIntent();
         String name = intent.getStringExtra("NAME");
-        int imageId = intent.getIntExtra("IMAGEID",0);
+        imgIdFromIntent = intent.getIntExtra("IMAGEID",0);
         double price = intent.getDoubleExtra("PRICE",0.0);
 
         //txtDetails.setText(p.getDesc());
-        productImg.setImageResource(imageId);
+        productImg.setImageResource(imgIdFromIntent);
         txtPrice.setText("₪"+price);
         txtTitle.setText(name);
     }
