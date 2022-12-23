@@ -1,5 +1,6 @@
 package com.example.androidstudioproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -92,6 +93,20 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.inputPassword);
         inputEmail = findViewById(R.id.inputEmail);
         loginBtn = findViewById(R.id.btnLogin);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("EMAIL",inputEmail.getText().toString());
+        outState.putString("PASSWORD",inputEmail.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        inputEmail.setText(savedInstanceState.getString("EMAIL","Eman@gmail.com"));
+        inputPassword.setText(savedInstanceState.getString("PASSWORD","123456789"));
     }
 
     public void btnLogin(View view) {
