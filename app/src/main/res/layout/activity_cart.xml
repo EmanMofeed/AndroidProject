@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@drawable/input_dg"
-                        android:text="$ "
+                        android:text="₪ "
                         android:textSize="28sp" />
                 </LinearLayout>
             </LinearLayout>
