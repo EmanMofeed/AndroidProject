@@ -3,4 +3,6 @@
 
     <stroke android:color="@color/purple" android:width="2dp" />
     <corners android:radius="70dp"/>
+    <padding android:left="10dp"
+        android:right="10dp"/>
 </shape>

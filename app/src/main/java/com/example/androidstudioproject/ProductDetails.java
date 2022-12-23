@@ -3,10 +3,12 @@ package com.example.androidstudioproject;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import java.util.Objects;
 
 public class ProductDetails extends AppCompatActivity {
 
+    public static ArrayList<anime> cartAnimeArraylist= new ArrayList<>();
     private ImageView imgArrow;
     private Animation arrowAnim;
 
@@ -29,8 +32,9 @@ public class ProductDetails extends AppCompatActivity {
     private ImageView productImg;
     private TextView txtPrice;
     private TextView txtNumberOFItems;
+    private Button addToCartBtn;
     private int numOfItems;
-    final ArrayList<anime> animes = new ArrayList<>();
+
 //    private ImageView addAnotherItem;
 
     //TODO: get data from productsData class to show it in txtDetails below (method)
@@ -43,6 +47,7 @@ public class ProductDetails extends AppCompatActivity {
         setUpViews();
         numOfItems=Integer.parseInt((String) txtNumberOFItems.getText());
         setDetails();
+
     }
 
 
@@ -55,6 +60,27 @@ public class ProductDetails extends AppCompatActivity {
         txtDetails=findViewById(R.id.txtDescription);
         productImg=findViewById(R.id.imgProduct);
         txtPrice=findViewById(R.id.txtPrice);
+        addToCartBtn=findViewById(R.id.btnAddToCart);
+        //ADD to cart
+    addToCartBtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        addToCartBtn.setText("Added");
+        Toast.makeText(ProductDetails.this,"clicked", Toast.LENGTH_SHORT).show();
+        String price2 =  txtPrice.getText().toString();
+        price2 = price2.replaceAll("₪","");
+        double price = Double.parseDouble(price2);
+        anime anime= new anime(txtTitle.getText().toString(),productImg.getId(),price,numOfItems); ;
+
+        Log.d("imgId arrayList",productImg.getId()+"");
+//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
+        cartAnimeArraylist.add(anime);
+
+//        Log.d("name",cartAnimeArraylist.get(i).getName());
+    }
+});
+
+
     }
 
     public void openHomePage(View view){
@@ -90,14 +116,19 @@ public class ProductDetails extends AppCompatActivity {
 
     }
 
-    public void addToCart(View view) {
-        String price2 =  txtPrice.getText().toString();
-        price2 = price2.replaceAll("₪","");
-        double price = Double.parseDouble(price2);
-        anime anime = new anime(txtTitle.getText().toString(),productImg.getId(),price,numOfItems);
-        animes.add(anime);
-        Intent intent = new Intent(ProductDetails.this, Cart.class);
-        startActivity(intent);
+//    public void addToCart(View view) {
+//        String price2 =  txtPrice.getText().toString();
+//        price2 = price2.replaceAll("₪","");
+//        double price = Double.parseDouble(price2);
+////        anime anime = new anime(txtTitle.getText().toString(),productImg.getId(),price,numOfItems);
+//        Toast.makeText(this,"clicked", Toast.LENGTH_SHORT).show();
+////        cartAnimeArraylist.add(anime);
+////        int i=0;
+////        Toast.makeText(this,  cartAnimeArraylist.get(i).getName().toString(), Toast.LENGTH_SHORT).show();
+////        Intent intent = new Intent(ProductDetails.this, cartActivity.class);
+////        startActivity(intent);
+//
+//    }
 
-    }
+
 }

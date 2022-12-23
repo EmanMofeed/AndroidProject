@@ -25,7 +25,6 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
     public animeAdapter(anime[]animeData,Context animeContext){
         this.animeData=animeData;
         this.animeContext=animeContext;
-
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

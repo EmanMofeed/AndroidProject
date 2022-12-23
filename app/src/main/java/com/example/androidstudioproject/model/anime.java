@@ -9,6 +9,7 @@ public class anime {
     private int quantity ;
     private String cate;
 
+
     public static final anime[] animes = {
             new anime("Attack on Titans necklace", R.drawable.aot,15,1,"anime"),
             new anime("Naruto figuers", R.drawable.naruto,15,1,"anime"),
@@ -62,5 +63,22 @@ public class anime {
 
     public void setCate(String cate) {
         this.cate = cate;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double calcTotalPrice(int quantity,double price){
+        double total=quantity*price;
+        return total;
     }
 }
