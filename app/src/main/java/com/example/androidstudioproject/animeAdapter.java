@@ -59,12 +59,9 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
                 i.putExtra("NAME",name);
                 i.putExtra("IMAGEID",imageId);
                 i.putExtra("PRICE",price);
-
                 animeContext.startActivity(i);
-
             }
         });
-
     }
 
     @Override
@@ -78,8 +75,5 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
             super(cardView);
             this.cardView = cardView;
         }
-
-
     }
-
 }
