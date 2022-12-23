@@ -45,14 +45,21 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
         TextView txt = (TextView)cardView.findViewById(R.id.txtName);
         txt.setText(animeData[position].getName());
         TextView Pritxt = (TextView)cardView.findViewById(R.id.txtprice);
-        Pritxt.setText(animeData[position].getPrice());
+        Pritxt.setText(animeData[position].getPrice()+"");
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int pos= holder.getPosition();
                 Toast.makeText(animeContext, animeData[pos].getName(), Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(animeContext,HomePageActivity.class);
+                Intent i=new Intent(animeContext,ProductDetails.class);
+                String name = animeData[pos].getName();
+                int imageId = animeData[pos].getImageId();
+                double price = animeData[pos].getPrice();
+                i.putExtra("NAME",name);
+                i.putExtra("IMAGEID",imageId);
+                i.putExtra("PRICE",price);
+
                 animeContext.startActivity(i);
 
             }
@@ -60,24 +67,11 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
 
     }
 
-
-
-
-
-
     @Override
     public int getItemCount() {
         return animeData.length;
     }
 
-
-
-    //    public void cardOnClick(View view){
-//        int pos= positon;
-//        Intent i=new Intent(animeContext,test.class);
-////      i.putExtra("name",captions[pos]) ;
-//        animeContext.startActivity(i);
-//    }
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
         public ViewHolder(CardView cardView){
