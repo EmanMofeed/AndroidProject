@@ -1,4 +1,5 @@
 package com.example.androidstudioproject;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -9,16 +10,15 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder>{
-    private String[] captions;
-    private int[] imageIds;
-    private String[] pricesid;
 
+import com.example.androidstudioproject.model.anime;
+import com.example.androidstudioproject.model.kpop;
 
-    public ViewAdapter(String[] captions, int[] imageIds, String[] pricesid){
-        this.captions = captions;
-        this.imageIds = imageIds;
-        this.pricesid = pricesid;
+public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
+    private anime[] animeData;
+
+    public animeAdapter(anime[]animeData){
+        this.animeData=animeData;
 
     }
     @Override
@@ -26,7 +26,6 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder>{
         CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.cardimage,
                 parent,
                 false);
-
         return new ViewHolder(v);
     }
 
@@ -34,25 +33,40 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
-        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
+        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), animeData[position].getImageId());
         imageView.setImageDrawable(dr);
+
         TextView txt = (TextView)cardView.findViewById(R.id.txtName);
-        txt.setText(captions[position]);
+        txt.setText(animeData[position].getName());
         TextView Pritxt = (TextView)cardView.findViewById(R.id.txtprice);
-        Pritxt.setText(pricesid[position]);
-        cardView.setOnClickListener( new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //
-            }
-        });
+        Pritxt.setText(animeData[position].getPrice());
+
+
+//        cardView.setOnClickListener( new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+////               int pos= holder.getPosition();
+////               Intent i=new Intent(animeContext,test.class);
+//////               i.putExtra("name",captions[pos]) ;
+////               animeContext.startActivity(i);
+//
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return captions.length;
+        return animeData.length;
     }
 
+
+
+    //    public void cardOnClick(View view){
+//        int pos= positon;
+//        Intent i=new Intent(animeContext,test.class);
+////      i.putExtra("name",captions[pos]) ;
+//        animeContext.startActivity(i);
+//    }
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
         public ViewHolder(CardView cardView){
@@ -60,5 +74,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder>{
             this.cardView = cardView;
         }
 
+
     }
+
 }

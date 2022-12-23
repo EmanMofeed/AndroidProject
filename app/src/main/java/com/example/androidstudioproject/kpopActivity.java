@@ -12,6 +12,8 @@ import com.example.androidstudioproject.model.kpop;
 import java.util.Objects;
 
 public class kpopActivity extends AppCompatActivity {
+    public kpop[] kpopData=new kpop[kpop.kpops.length];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +23,13 @@ public class kpopActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recyclerK = findViewById(R.id.kpop_recycler);
 
-        String[] names = new String[kpop.kpops.length];
-        String[] price = new String[kpop.kpops.length];
-        int[] imgs = new int[kpop.kpops.length];
 
-        for(int i = 0; i<names.length;i++){
-            names[i] = kpop.kpops[i].getName();
-            price[i] = kpop.kpops[i].getPrice();
-            imgs[i] = kpop.kpops[i].getImageId();
+
+        for(int i = 0; i<kpopData.length;i++){
+            kpopData[i]= new kpop(kpop.kpops[i].getName(),kpop.kpops[i].getImageId(),kpop.kpops[i].getPrice());
         }
         recyclerK.setLayoutManager(new GridLayoutManager(this,2));
-        ViewAdapter adapterk = new ViewAdapter(names, imgs,price);
+        kpopAdapter adapterk = new kpopAdapter(kpopData);
         recyclerK.setAdapter(adapterk);
     }
 

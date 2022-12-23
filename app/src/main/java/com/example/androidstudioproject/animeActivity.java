@@ -12,6 +12,7 @@ import com.example.androidstudioproject.model.anime;
 import java.util.Objects;
 
 public class animeActivity extends AppCompatActivity {
+    public anime[] animeData=new anime[anime.animes.length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +22,12 @@ public class animeActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recycler = findViewById(R.id.anime_recycler);
 
-        String[] captions = new String[anime.animes.length];
-        String[] prices = new String[anime.animes.length];
-        int[] ids = new int[anime.animes.length];
-
-        for(int i = 0; i<captions.length;i++){
-            captions[i] = anime.animes[i].getName();
-            prices[i] = anime.animes[i].getPrice();
-            ids[i] = anime.animes[i].getImageId();
+        for(int i = 0; i<animeData.length;i++){
+            animeData[i]=new anime(anime.animes[i].getName(),anime.animes[i].getImageId(),anime.animes[i].getPrice());
         }
+
         recycler.setLayoutManager(new GridLayoutManager(this,2));
-        ViewAdapter adapter = new ViewAdapter(captions, ids,prices);
+        animeAdapter adapter = new animeAdapter(animeData);
         recycler.setAdapter(adapter);
     }
 
