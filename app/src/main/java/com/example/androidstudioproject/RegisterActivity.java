@@ -1,5 +1,6 @@
 package com.example.androidstudioproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -102,6 +103,27 @@ private void showError(EditText input, String error) {
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
         inputEmail = findViewById(R.id.inputEmail);
         btnRegister = findViewById(R.id.btnRegister);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("NAME",inputUserName.getText().toString());
+        outState.putString("EMAIL",inputEmail.getText().toString());
+        outState.putString("PASSWORD",inputPassword.getText().toString());
+        outState.putString("PASSWORDCONFIRM",inputConfirmPassword.getText().toString());
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        inputUserName.setText(savedInstanceState.getString("NAME","EmanKhalaf"));
+        inputEmail.setText(savedInstanceState.getString("EMAIL","Eman@gmail.com"));
+        inputPassword.setText(savedInstanceState.getString("PASSWORD","123456789"));
+        inputConfirmPassword.setText(savedInstanceState.getString("PASSWORDCONFIRM","123456789"));
+
     }
 
 }
