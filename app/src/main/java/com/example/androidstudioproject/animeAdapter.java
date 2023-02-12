@@ -2,28 +2,26 @@ package com.example.androidstudioproject;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidstudioproject.model.anime;
-import com.example.androidstudioproject.model.kpop;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
-    private anime[] animeData;
+    private ArrayList<anime> animeData;
     Context animeContext;
+    CardView cardView;
 
-    public animeAdapter(anime[]animeData,Context animeContext){
+    public animeAdapter(ArrayList<anime> animeData, Context animeContext){
         this.animeData=animeData;
         this.animeContext=animeContext;
     }
@@ -37,31 +35,29 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        CardView cardView = holder.cardView;
+        cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
-        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), animeData[position].getImageId());
-        imageView.setImageDrawable(dr);
-
-        TextView txt = (TextView)cardView.findViewById(R.id.txtName);
-        txt.setText(animeData[position].getName());
-        TextView Pritxt = (TextView)cardView.findViewById(R.id.txtprice);
-        Pritxt.setText(animeData[position].getPrice()+"");
+        Picasso.get().load(animeData.get(position).getImage()).into(imageView);
+        TextView txt = (TextView) cardView.findViewById(R.id.txtName);
+        txt.setText(animeData.get(position).getName());
+        TextView Pritxt = (TextView) cardView.findViewById(R.id.txtprice);
+        Pritxt.setText(animeData.get(position).getPrice() + "");
+        holder.setImage(animeContext,animeData.get(position).getImage());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int pos= holder.getPosition();
-                Intent i=new Intent(animeContext,ProductDetails.class);
-                String name = animeData[pos].getName();
-                int imageId = animeData[pos].getImageId();
-                double price = animeData[pos].getPrice();
-                String description = animeData[pos].getDescription();
+                int pos = holder.getPosition();
+                Intent i = new Intent(animeContext, ProductDetails.class);
+                String name = animeData.get(pos).getName();
+                String imageId = animeData.get(pos).getImage();
+                double price = animeData.get(pos).getPrice();
+                String description = animeData.get(pos).getDescription();
 
                 i.putExtra("NAME",name);
-                i.putExtra("IMAGEID",imageId);
+                i.putExtra("IMAGE",imageId);
                 i.putExtra("PRICE",price);
                 i.putExtra("DESCRIPTION",description);
-
                 animeContext.startActivity(i);
             }
         });
@@ -69,7 +65,7 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return animeData.length;
+        return animeData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -77,6 +73,11 @@ public class animeAdapter extends RecyclerView.Adapter<animeAdapter.ViewHolder>{
         public ViewHolder(CardView cardView){
             super(cardView);
             this.cardView = cardView;
+        }
+
+        public void setImage(Context context,String imageUrl) {
+            ImageView imageView = itemView.findViewById(R.id.image);
+            Picasso.get().load(imageUrl).into(imageView);
         }
     }
 }

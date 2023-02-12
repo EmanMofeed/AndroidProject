@@ -4,59 +4,46 @@ import com.example.androidstudioproject.R;
 
 public class anime {
     private String name;
-    private int imageId;
+    private String image;
     private double price;
     private int quantity ;
     private String cate;
     private String description;
 
+    public anime(){
 
-    public static final anime[] animes = {
-            new anime("Attack on Titans necklace", R.drawable.aot,15,1,"anime","1 piece of attack on titans necklace"),
-            new anime("Naruto figuers", R.drawable.naruto,15,1,"anime","1 piece random figure"),
-            new anime("Zoro earings", R.drawable.zoro,15,1,"anime","3 pieces zoro earings"),
-            new anime("attack on titans mug", R.drawable.aotmug,15,1,"anime","1 piece cup"),
-            new anime("Naruto phone cases", R.drawable.covers,30,1,"anime","1 piece Iphone 13 pro max case"),
-            new anime("Demon Slayer Keychains", R.drawable.dkey,6,1,"anime","1 piece small keychain"),
-            new anime("Demon Slayer figuers", R.drawable.demon,15,1,"anime","1 piece random figure"),
-            new anime("Posters", R.drawable.posters,8,1,"anime","1 piece A4 poster"),
-            new anime("Spy X Family lomocards", R.drawable.spylomo,18,1,"anime","1 piece A4 poster")
-
-    };
-
-    public anime(String name, int imageId, double price,int quantity, String cate,String description) {
+    }
+    public anime(String name, String imageURL, String desc, double price, String type) {
         this.name = name;
-        this.imageId = imageId;
+        this.image = imageURL;
         this.price = price;
-        this.quantity=quantity;
-        this.cate = cate;
-        this.description = description;
+        this.cate = type;
+        this.description = desc;
 
     }
 
-    public anime(String name, int imageId, double price,String description) {
+    public anime(String name, String imageId, double price,int quantity,String description) {
         this.name = name;
-        this.imageId = imageId;
+        this.image = imageId;
         this.price = price;
         this.quantity=quantity;
         this.description = description;
 
     }
-    public anime(String name, int imageId, double price,int quantity,String description) {
-        this.name = name;
-        this.imageId = imageId;
-        this.price = price;
-        this.quantity=quantity;
-        this.description = description;
 
+    public anime(String image, String name, double price) {
+        this.price = price;
+        this.name=name;
+        this.image = image;
     }
+
 
     public String getName() {
         return name;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getImage() {
+        return image;
     }
 
     public double getPrice() {
@@ -71,8 +58,8 @@ public class anime {
         this.cate = cate;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageId(String imageId) {
+        this.image = imageId;
     }
 
     public int getQuantity() {

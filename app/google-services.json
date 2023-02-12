@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "500507572418",
+    "firebase_url": "https://euphoria-872c8-default-rtdb.firebaseio.com",
+    "project_id": "euphoria-872c8",
+    "storage_bucket": "euphoria-872c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500507572418:android:49cff806fc55f5172fa35b",
+        "android_client_info": {
+          "package_name": "com.example.androidstudioproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500507572418-tgrtf4reiaf0ffbg1l16ctjn2d2p38uu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC6_2CYEWEIIPjGrKG1BaMb3_Ej-t3hBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500507572418-tgrtf4reiaf0ffbg1l16ctjn2d2p38uu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,18 +3,22 @@ package com.example.androidstudioproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.androidstudioproject.model.SignUp;
-import com.example.androidstudioproject.model.SignUpData;
+import com.google.android.datatransport.runtime.dagger.Reusable;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 import java.util.Objects;
@@ -23,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textViewSignup ;
     private EditText inputEmail,inputPassword;
     private Button loginBtn;
+    FirebaseAuth FAth;
+    String email,password;
 
     SharedPreferences preferences;
     @Override
@@ -33,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupViews();
 
+        FAth = FirebaseAuth.getInstance();
+
+
         preferences=getSharedPreferences("UserInfo",0);
 
         textViewSignup.setOnClickListener(new View.OnClickListener() {
@@ -42,47 +51,32 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    public void checkCredentials(){
-        String email = inputEmail.getText().toString();
-        String password = inputPassword.getText().toString();
 
-        if(email.isEmpty() || !email.contains("@")){
-            showError(inputEmail,"Email is not valid");
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    public boolean isValid(){
+       boolean isValid = false,  isValidEmail =false, isValidPassword=false;
+       if(TextUtils.isEmpty(email)){
+           inputEmail.setError("Email is required");
+           inputEmail.requestFocus();
+       }else {
+           if(email.matches(emailPattern)){
+               isValidEmail =true;
+           }else {
+               inputEmail.setError("Invalid Email Address");
+               inputEmail.requestFocus();
+           }
         }
-        else if(password.isEmpty() || password.length()<7){
-            showError(inputPassword,"Password must be 7 character");
-        }else {
-            checkUserInformation(email,password);
-        }
+       if(TextUtils.isEmpty(password)){
+           inputEmail.setError("Password is required");
+           inputEmail.requestFocus();
 
-    }
-    private void checkUserInformation(String email,String password) {
-        SignUpData signUpData = new SignUpData();
-        List<SignUp> data = signUpData.getData();
-        boolean flagEmail = false;
-        for (int i = 0; i < data.size(); i++) {
-            if(data.get(i).getEmail().equalsIgnoreCase(email)){
-                if(data.get(i).getPassword().equals(password)) {
-                    startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
-                    flagEmail = true;
-                    break;
-                }else {
-                    showError(inputPassword,"Wrong password");
-                    flagEmail = true;
-                    break;
-                }
-
-            }
-        }
-        if(!flagEmail){
-            showError(inputEmail,"This email does not exist you need to signUp first");
-        }
+       }else{
+           isValidPassword = true;
+       }
+       isValid= isValidEmail&& isValidPassword;
+       return isValid;
     }
 
-    private void showError(EditText input, String error) {
-        input.setError(error);
-        input.requestFocus();
-    }
 
 
 
@@ -108,6 +102,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btnLogin(View view) {
-        checkCredentials();
-    }
+        email = inputEmail.getText().toString().trim();
+        password = inputPassword.getText().toString().trim();
+
+        if(isValid()){
+
+            FAth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        if(FAth.getCurrentUser().isEmailVerified()){
+                            startActivity(new Intent(LoginActivity.this,HomePageActivity.class));
+                        }else {
+                            inputEmail.setError("You don't have account");
+                        }
+                    }
+                }
+            });
+        }
+        }
 }

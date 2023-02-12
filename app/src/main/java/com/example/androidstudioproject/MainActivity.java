@@ -6,13 +6,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     private ImageView img,img1,img2,img3;
     private Animation flying;
-
+    private TextView textView4;
     private ImageView instagram;
 
     @SuppressLint("MissingInflatedId")
@@ -48,6 +48,16 @@ public class MainActivity extends AppCompatActivity {
                 goToLink("https://www.instagram.com/___euphoria___1/");
             }
         });
+
+        textView4 = findViewById(R.id.textView4);
+        textView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fp = new Intent(getApplicationContext(), UploadActivity.class);
+                startActivity(fp);
+            }
+        });
+
     }
 
     private void goToLink(String link){

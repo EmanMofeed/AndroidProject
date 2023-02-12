@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidstudioproject.model.anime;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,10 +53,10 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
         TextView totalPriceForEach=cardView.findViewById(R.id.totalPriceTextView);
 
         //give each component in each card its value
-        int imgViewId=cartAnime.get(position).getImageId();
-
-        Drawable dr= ContextCompat.getDrawable(holder.cardView.getContext(),imgViewId);
-        itemImg.setImageDrawable(dr);
+        String imgViewId=cartAnime.get(position).getImage();
+        Picasso.get().load(imgViewId).into(itemImg);
+        //Drawable dr= ContextCompat.getDrawable(holder.cardView.getContext(),imgViewId);
+        //itemImg.setImageDrawable(dr);
         nameTxt.setText(cartAnime.get(position).getName());
         price.setText(cartAnime.get(position).getPrice()+"");
         quantity.setText(cartAnime.get(position).getQuantity()+"");
@@ -133,7 +134,6 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
 
     private void inc(int position, TextView quantity, TextView totalPrice) {
         int value=cartAnime.get(position).getQuantity() +1;
-
         cartAnime.get(position).setQuantity(value);
         quantity.setText(cartAnime.get(position).getQuantity()+"");
         Log.d("inc",value+"");

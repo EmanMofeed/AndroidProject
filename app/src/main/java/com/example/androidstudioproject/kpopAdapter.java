@@ -12,14 +12,17 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidstudioproject.model.anime;
+import com.bumptech.glide.Glide;
 import com.example.androidstudioproject.model.kpop;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class kpopAdapter extends RecyclerView.Adapter<kpopAdapter.ViewHolder>{
-    private kpop[] kpopData;
+    private ArrayList<kpop> kpopData;
     Context kpopContext;
-
-    public kpopAdapter(kpop[]kpopData, Context kpopContext){
+    CardView cardView;
+    public kpopAdapter(ArrayList<kpop> kpopData, Context kpopContext){
         this.kpopData=kpopData;
         this.kpopContext=kpopContext;
 
@@ -34,29 +37,27 @@ public class kpopAdapter extends RecyclerView.Adapter<kpopAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        CardView cardView = holder.cardView;
+        cardView = holder.cardView;
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
-        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), kpopData[position].getImageId());
-        imageView.setImageDrawable(dr);
+        Picasso.get().load(kpopData.get(position).getImage()).into(imageView);
+        TextView txt = (TextView) cardView.findViewById(R.id.txtName);
+        txt.setText(kpopData.get(position).getName());
+        TextView Pritxt = (TextView) cardView.findViewById(R.id.txtprice);
+        Pritxt.setText(kpopData.get(position).getPrice() + "");
+        holder.setImage(kpopContext,kpopData.get(position).getImage());
 
-        TextView txt = (TextView)cardView.findViewById(R.id.txtName);
-        txt.setText(kpopData[position].getName());
-        TextView Pritxt = (TextView)cardView.findViewById(R.id.txtprice);
-        Pritxt.setText(kpopData[position].getPrice()+"");
-
-
-        holder.cardView.setOnClickListener( new View.OnClickListener(){
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                int pos= holder.getPosition();
-                Intent i=new Intent(kpopContext,ProductDetails.class);
-                String name = kpopData[pos].getName();
-                int imageId = kpopData[pos].getImageId();
-                double price = kpopData[pos].getPrice();
-                String description = kpopData[pos].getDescription();
+            public void onClick(View view) {
+                int pos = holder.getPosition();
+                Intent i = new Intent(kpopContext, ProductDetails.class);
+                String name = kpopData.get(pos).getName();
+                String imageId = kpopData.get(pos).getImage();
+                double price = kpopData.get(pos).getPrice();
+                String description = kpopData.get(pos).getDescription();
 
                 i.putExtra("NAME",name);
-                i.putExtra("IMAGEID",imageId);
+                i.putExtra("IMAGE",imageId);
                 i.putExtra("PRICE",price);
                 i.putExtra("DESCRIPTION",description);
                 kpopContext.startActivity(i);
@@ -64,19 +65,23 @@ public class kpopAdapter extends RecyclerView.Adapter<kpopAdapter.ViewHolder>{
         });
     }
 
+
     @Override
     public int getItemCount() {
-        return kpopData.length;
+        return kpopData.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
-        public ViewHolder(CardView cardView){
+
+        public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;
         }
 
-
+        public void setImage(Context context,String imageUrl) {
+            ImageView imageView = itemView.findViewById(R.id.image);
+            Picasso.get().load(imageUrl).into(imageView);
+        }
+        }
     }
-
-}

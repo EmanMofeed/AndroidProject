@@ -1,17 +1,25 @@
 package com.example.androidstudioproject;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.example.androidstudioproject.model.anime;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class animeActivity extends AppCompatActivity {
-    public anime[] animeData=new anime[anime.animes.length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +27,39 @@ public class animeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_anime);
         Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        RecyclerView recycler = findViewById(R.id.anime_recycler);
-
-        Context animeContext=animeActivity.this;
-        for(int i = 0; i<animeData.length;i++){
-            animeData[i]=new anime(anime.animes[i].getName(),anime.animes[i].getImageId(),anime.animes[i].getPrice(),anime.animes[i].getDescription());
-        }
+        RecyclerView recyclerView = findViewById(R.id.anime_recycler);
 
 
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
-        animeAdapter adapter = new animeAdapter(animeData,animeContext);
-        recycler.setAdapter(adapter);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Items");
+        ArrayList<anime> list = new ArrayList<>();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    String type= dataSnapshot.getValue(anime.class).getCate().trim();
+                    if(type.equals("anime")) {
+                        String image = dataSnapshot.getValue(anime.class).getImage();
+                        String name = dataSnapshot.getValue(anime.class).getName();
+                        double price = dataSnapshot.getValue(anime.class).getPrice();
+                        anime anime = new anime(image, name, price);
+                        list.add(anime);
+                    }else{
+                        continue;
+                    }
+                }
+                recyclerView.setLayoutManager(new GridLayoutManager(animeActivity.this,2));
+                animeAdapter adapter = new animeAdapter(list,animeActivity.this);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
 }
