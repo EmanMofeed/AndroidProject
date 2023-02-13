@@ -37,6 +37,14 @@ public class kpop {
         this.name=name;
         this.image = image;
     }
+    public kpop(String name, int imageId, double price,int quantity) {
+        this.name = name;
+        this.imageId = imageId;
+        this.price = price;
+        this.quantity=quantity;
+    }
+    public kpop() {
+    }
 
     public String getName() {
         return name;

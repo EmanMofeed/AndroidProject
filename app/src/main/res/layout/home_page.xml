@@ -1,90 +1,167 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAE1EF"
-    android:layout_margin="8dp"
+    android:background="@drawable/background"
     tools:context=".HomePageActivity">
 
-    <ImageView
-        android:id="@+id/Kimg"
-        android:layout_width="200dp"
-        android:layout_height="176dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
-        app:srcCompat="@drawable/kpop" />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_gravity="top"
+        android:layout_margin="10dp"
+        app:backgroundTint="@android:color/transparent">
 
-    <Button
-        android:id="@+id/Kbtn"
-        android:layout_width="185dp"
-        android:layout_height="63dp"
-        android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple"
-        android:text="@string/kpop_products"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_width="183dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:text="   Euphoria"
+            android:textColor="#ECD2F1"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/topBar"
+            app:layout_anchorGravity="center" />
 
-    <ImageView
-        android:id="@+id/Aimg"
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:scrollbarSize="5dp"
+            app:layout_anchor="@+id/imageButton"
+            app:layout_anchorGravity="end|bottom"
+            app:srcCompat="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:onClick="backOnClick"/>
 
-        android:layout_width="200dp"
-        android:layout_height="176dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618"
-        app:srcCompat="@drawable/anime" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <Button
-        android:id="@+id/Abtn"
-        android:layout_width="194dp"
-        android:layout_height="64dp"
-        android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple"
-        android:text="@string/anime_products"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778" />
 
-    <TextView
-        android:id="@+id/txtGoToCart"
+    <LinearLayout
+        android:layout_width="442dp"
+        android:layout_height="253dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/anime"
+            style="@style/homeCardStyle"
+            android:onClick="animeOnClick">
+
+            <LinearLayout
+                android:layout_width="174dp"
+                android:layout_height="193dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="117dp"
+                    android:layout_height="119dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/anime" />
+
+                <TextView
+                    android:id="@+id/animeTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:gravity="center"
+                    android:text="Anime"
+                    android:textColor="#9C27B0"
+                    android:textSize="34sp">
+
+                </TextView>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kPop"
+            style="@style/homeCardStyle"
+            android:onClick="kpopOnClick">
+
+            <LinearLayout
+                android:layout_width="174dp"
+                android:layout_height="193dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/kpopImage"
+                    android:layout_width="117dp"
+                    android:layout_height="119dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/kpop" />
+
+                <TextView
+                    android:id="@+id/kPopTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/alfa_slab_one"
+                    android:gravity="center"
+                    android:text="kpop"
+                    android:textColor="#9C27B0"
+                    android:textSize="34sp">
+
+                </TextView>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Go to CART"
-        android:textColor="#6B425C"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/addToCartImgView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        app:fabCradleMargin="5dp"
+        app:fabCradleRoundedCornerRadius="20dp">
 
-    <ImageView
-        android:id="@+id/addToCartImgView"
-        android:layout_width="104dp"
-        android:layout_height="86dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            android:outlineSpotShadowColor="@color/white"
+            app:itemIconSize="30dp"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DFEAB6F4"
+        android:contentDescription="Home"
+        android:src="@drawable/ic_baseline_home_24"
+        app:layout_anchor="@id/bottomBar"
+        app:maxImageSize="50dp"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

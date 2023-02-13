@@ -29,6 +29,20 @@ public class anime {
         this.quantity=quantity;
         this.description = description;
 
+
+    }
+    public anime() {
+
+
+    }
+    public anime(String name, int imageId, double price,int quantity) {
+        this.name = name;
+        this.imageId = imageId;
+        this.price = price;
+        this.quantity=quantity;
+        this.description = description;
+
+
     }
 
     public anime(String image, String name, double price) {

@@ -76,6 +76,7 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:padding="5dp"
                 android:onClick="onClickMinus"
                 card_view:srcCompat="@drawable/minus"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

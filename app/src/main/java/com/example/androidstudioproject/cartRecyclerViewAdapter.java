@@ -115,7 +115,7 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
     }
 
     private void dec(int position, TextView quantity, TextView totalPrice) {
-        if(cartAnime.get(position).getQuantity() > 1 ){
+        if(cartAnime.get(position).getQuantity() > 0 ){
             int value=cartAnime.get(position).getQuantity() -1;
             cartAnime.get(position).setQuantity(value);
             quantity.setText(cartAnime.get(position).getQuantity()+"");}

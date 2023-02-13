@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.androidstudioproject.model.anime;
 import com.example.androidstudioproject.ProductDetails;
+import com.example.androidstudioproject.model.kpop;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -31,6 +32,7 @@ public class cartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         ArrayList<anime> cartAnime = new ArrayList<>();
         cartAnime=ProductDetails.cartAnimeArraylist;
+
         Animation carAnim;
         super.onCreate(savedInstanceState);
         //hide action bar
