@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
@@ -61,4 +63,8 @@ public class kpopActivity extends AppCompatActivity {
 
     }
 
+    public void backToHomeFromKpop(View view) {
+        Intent intent = new Intent(kpopActivity.this,HomePageActivity.class);
+        startActivity(intent);
+    }
 }

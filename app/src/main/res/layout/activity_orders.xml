@@ -4,24 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="top"
-    android:background="@drawable/background"
     android:alpha="0.8"
-    android:gravity="center"
+    android:layout_gravity="top"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="20dp"
+    android:background="#EFE8F1"
+    android:backgroundTint="#F2E4F6">
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/topBar"
+        android:layout_width="376dp"
+        android:layout_height="66dp"
+        android:layout_gravity="top"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar">
+
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_width="183dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:text="     Orders"
+            android:textColor="@color/text"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/topBar"
+            app:layout_anchorGravity="center" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:onClick="backHomeFromOrd"
+            android:scrollbarSize="5dp"
+            app:layout_anchor="@+id/imageButton"
+            app:layout_anchorGravity="end|bottom"
+            app:srcCompat="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
 
-    <TextView
-        android:id="@+id/mycartTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:layout_margin="15dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Orders"
-        android:textColor="#6B425C"
-        android:textSize="48sp" />
 
     <ScrollView
         android:layout_width="match_parent"

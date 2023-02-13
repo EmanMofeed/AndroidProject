@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.androidstudioproject.model.Order;
 
@@ -29,5 +31,11 @@ public class ordersActivity extends AppCompatActivity {
         orderRecyclerAdapter adapter = new orderRecyclerAdapter(ordersArrayList);
         ordersRecycler.setAdapter(adapter);
 
+
     }
+    public void backHomeFromOrd(View view) {
+        Intent intent = new Intent(ordersActivity.this,HomePageActivity.class);
+        startActivity(intent);
+    }
+
 }

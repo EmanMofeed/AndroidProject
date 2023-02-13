@@ -44,9 +44,9 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.account:
-                        Toast.makeText(HomePageActivity.this, "account", Toast.LENGTH_SHORT).show();
-                        return true;
+//                    case R.id.account:
+//                        Toast.makeText(HomePageActivity.this, "account", Toast.LENGTH_SHORT).show();
+//                        return true;
 
                     case R.id.signOut:
                         Toast.makeText(HomePageActivity.this, "signOut", Toast.LENGTH_SHORT).show();

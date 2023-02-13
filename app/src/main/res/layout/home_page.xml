@@ -162,6 +162,7 @@
         android:src="@drawable/ic_baseline_home_24"
         app:layout_anchor="@id/bottomBar"
         app:maxImageSize="50dp"
+        app:elevation="30dp"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 

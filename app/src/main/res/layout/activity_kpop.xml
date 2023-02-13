@@ -5,15 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    tools:context=".kpopActivity">
+    android:background="#EFE8F1"
+    android:backgroundTint="#F2E4F6"
+    tools:context=".kpopActivity"
+   >
 
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/topBar"
+        android:layout_width="376dp"
+        android:layout_height="66dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="4dp"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar">
+
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_width="183dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:text="       Kpop"
+            android:textColor="@color/text"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/topBar"
+            app:layout_anchorGravity="center" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:onClick="backToHomeFromKpop"
+            android:scrollbarSize="5dp"
+            app:layout_anchor="@+id/imageButton"
+            app:layout_anchorGravity="end|bottom"
+            app:srcCompat="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/kpop_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="#EFE8F1"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,12 @@
         />
 
     <item
+        android:id="@+id/holder1"
+        android:title=""
+        app:showAsAction="ifRoom"
+        android:enabled="false"/>
+
+    <item
         android:id="@+id/holder"
         android:title=""
         app:showAsAction="ifRoom"
@@ -28,11 +34,6 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:iconTint="#db04e9"/>
-    <item
-        android:id="@+id/account"
-        android:title="Account"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_account_circle_24"
-        android:iconTint="#db04e9"/>
+
 
 </menu>

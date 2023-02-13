@@ -82,4 +82,9 @@ public class cartActivity extends AppCompatActivity {
         finish();
 
     }
+
+    public void backHomeFromCart(View view) {
+        Intent intent = new Intent(cartActivity.this,HomePageActivity.class);
+        startActivity(intent);
+    }
 }

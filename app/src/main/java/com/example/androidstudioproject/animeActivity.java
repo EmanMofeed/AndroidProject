@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.example.androidstudioproject.model.anime;
@@ -59,6 +61,11 @@ public class animeActivity extends AppCompatActivity {
         });
 
 
+
     }
 
-}
+    public void backToHome(View view) {
+            Intent intent = new Intent(animeActivity.this,HomePageActivity.class);
+            startActivity(intent);
+        }
+    }
