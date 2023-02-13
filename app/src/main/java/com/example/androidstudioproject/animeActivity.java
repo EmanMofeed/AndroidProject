@@ -25,7 +25,6 @@ public class animeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anime);
-        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recyclerView = findViewById(R.id.anime_recycler);
 

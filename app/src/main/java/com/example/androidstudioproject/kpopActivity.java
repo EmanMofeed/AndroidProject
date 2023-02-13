@@ -27,7 +27,6 @@ public class kpopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kpop);
-        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RecyclerView recyclerK = findViewById(R.id.kpop_recycler);
 

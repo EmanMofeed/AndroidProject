@@ -11,9 +11,6 @@ public class kpop {
     private String description;
 
 
-    public kpop(){
-
-    }
     public kpop(String name, String imageURL, String desc, double price, String type) {
         this.name = name;
         this.image = imageURL;
@@ -37,9 +34,9 @@ public class kpop {
         this.name=name;
         this.image = image;
     }
-    public kpop(String name, int imageId, double price,int quantity) {
+    public kpop(String name, String imageId, double price,int quantity) {
         this.name = name;
-        this.imageId = imageId;
+        this.image = imageId;
         this.price = price;
         this.quantity=quantity;
     }

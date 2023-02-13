@@ -38,8 +38,6 @@ public class cartActivity extends AppCompatActivity {
         //hide action bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-
         setContentView(R.layout.activity_cart);
         //give each component in the cart card its value
         RecyclerView cartRecycler= findViewById(R.id.cartRecyclerView);

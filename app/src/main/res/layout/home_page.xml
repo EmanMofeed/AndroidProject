@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#EFE8F1"
+    android:backgroundTint="#F2E4F6"
     tools:context=".HomePageActivity">
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -22,7 +23,7 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:text="   Euphoria"
-            android:textColor="#ECD2F1"
+            android:textColor="@color/text"
             android:textSize="35sp"
             android:textStyle="bold"
             app:layout_anchor="@+id/topBar"
@@ -33,12 +34,12 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:background="@android:color/transparent"
+            android:onClick="backOnClick"
             android:scrollbarSize="5dp"
             app:layout_anchor="@+id/imageButton"
             app:layout_anchorGravity="end|bottom"
             app:srcCompat="@drawable/back"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:onClick="backOnClick"/>
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -80,7 +81,7 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:gravity="center"
                     android:text="Anime"
-                    android:textColor="#9C27B0"
+                    android:textColor="@color/text"
                     android:textSize="34sp">
 
                 </TextView>
@@ -116,7 +117,7 @@
                     android:fontFamily="@font/alfa_slab_one"
                     android:gravity="center"
                     android:text="kpop"
-                    android:textColor="#9C27B0"
+                    android:textColor="@color/text"
                     android:textSize="34sp">
 
                 </TextView>

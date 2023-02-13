@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.androidstudioproject.model.anime;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -33,7 +34,7 @@ public class ProductDetails extends AppCompatActivity {
     private TextView txtNumberOFItems;
     private Button addToCartBtn;
     private int numOfItems;
-    private int imgIdFromIntent;
+    private String imgIdFromIntent;
 
 
     //TODO: get data from productsData class to show it in txtDetails below (method)
@@ -55,7 +56,7 @@ public class ProductDetails extends AppCompatActivity {
                 String price2 =  txtPrice.getText().toString();
                 price2 = price2.replaceAll("₪","");
                 double price = Double.parseDouble(price2);
-                anime anime= new anime(txtTitle.getText().toString(), imgIdFromIntent, price,numOfItems,txtDetails.getText().toString()); ;
+                    anime anime= new anime(txtTitle.getText().toString(), imgIdFromIntent, price,numOfItems,txtDetails.getText().toString()); ;
                 Log.d("imgId arrayList",productImg.getId()+"");
                 cartAnimeArraylist.add(anime);
 
@@ -86,10 +87,10 @@ public class ProductDetails extends AppCompatActivity {
     private void setDetails() {
         Intent intent = getIntent();
         String name = intent.getStringExtra("NAME");
-        imgIdFromIntent = intent.getIntExtra("IMAGEID",0);
+        imgIdFromIntent = intent.getStringExtra("IMAGE");
         double price = intent.getDoubleExtra("PRICE",0.0);
         String description = intent.getStringExtra("DESCRIPTION");
-        productImg.setImageResource(imgIdFromIntent);
+        Picasso.get().load(imgIdFromIntent).into(productImg);
         txtPrice.setText("₪"+price);
         txtTitle.setText(name);
         txtDetails.setText(description);

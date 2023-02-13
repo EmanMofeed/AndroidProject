@@ -74,11 +74,13 @@ public class HomePageActivity extends AppCompatActivity {
 
 
     public void kpopOnClick(View view) {
-        Toast.makeText(this, "kpop clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(HomePageActivity.this,kpopActivity.class);
+        startActivity(intent);
     }
 
     public void animeOnClick(View view) {
-        Toast.makeText(this, "anime clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(HomePageActivity.this,animeActivity.class);
+        startActivity(intent);
     }
 
     public void backOnClick(View view) {

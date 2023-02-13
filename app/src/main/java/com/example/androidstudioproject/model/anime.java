@@ -10,9 +10,6 @@ public class anime {
     private String cate;
     private String description;
 
-    public anime(){
-
-    }
     public anime(String name, String imageURL, String desc, double price, String type) {
         this.name = name;
         this.image = imageURL;
@@ -35,9 +32,9 @@ public class anime {
 
 
     }
-    public anime(String name, int imageId, double price,int quantity) {
+    public anime(String name, String imageId, double price,int quantity) {
         this.name = name;
-        this.imageId = imageId;
+        this.image = imageId;
         this.price = price;
         this.quantity=quantity;
         this.description = description;
