@@ -42,7 +42,6 @@ public class ProductDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_details);
-        Objects.requireNonNull(getSupportActionBar()).hide(); //<< this
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setUpViews();
         numOfItems=Integer.parseInt((String) txtNumberOFItems.getText());
