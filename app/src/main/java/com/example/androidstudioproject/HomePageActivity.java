@@ -44,13 +44,6 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-//                    case R.id.account:
-//                        Toast.makeText(HomePageActivity.this, "account", Toast.LENGTH_SHORT).show();
-//                        return true;
-
-                    case R.id.signOut:
-                        Toast.makeText(HomePageActivity.this, "signOut", Toast.LENGTH_SHORT).show();
-                        return true;
 
                     case R.id.order:
                         Intent orderIntent = new Intent(HomePageActivity.this, ordersActivity.class);
@@ -83,6 +76,10 @@ public class HomePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void backOnClick(View view) {
+
+
+    public void signOutOnClick(View view) {
+        Intent intent = new Intent(HomePageActivity.this,MainActivity.class);
+        startActivity(intent);
     }
 }

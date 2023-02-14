@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Order ID :"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Order Date :"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -53,16 +53,16 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Amount :"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="City :"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
-                android:textSize="16sp"/>
+                android:text="City :"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,8 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="1192067"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/orderDateTxt"
@@ -87,8 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="2/3/2023 11:45"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/orderAmountTxt"
@@ -96,8 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="50 $"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/orderCityTxt"
@@ -105,8 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="Ramallah"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

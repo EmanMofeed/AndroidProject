@@ -1,5 +1,6 @@
 package com.example.androidstudioproject.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 public class Order {
@@ -7,7 +8,14 @@ public class Order {
     private String orderDate;
     private double orderAmount;
     private String city;
+    public Order(double orderAmount) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(System.currentTimeMillis());
+        setOrderDate(date);
+        setOrderId();
+        this.orderAmount = orderAmount;
 
+    }
 
     public Order(int orderId, String orderDate, double orderAmount) {
         this.orderId = orderId;
@@ -22,6 +30,15 @@ public class Order {
         this.orderAmount = orderAmount;
         this.city = city;
     }
+    public Order(  double orderAmount, String city) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(System.currentTimeMillis());
+        setOrderDate(date);
+        setOrderId();
+        this.orderAmount = orderAmount;
+        this.city = city;
+    }
+
 
 
 

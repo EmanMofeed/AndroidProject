@@ -29,16 +29,19 @@
             app:layout_anchor="@+id/topBar"
             app:layout_anchorGravity="center" />
 
+
+
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="60dp"
-            android:layout_height="50dp"
+            android:id="@+id/signout"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
             android:background="@android:color/transparent"
-            android:onClick="backOnClick"
+            android:onClick="signOutOnClick"
             android:scrollbarSize="5dp"
-            app:layout_anchor="@+id/imageButton"
-            app:layout_anchorGravity="end|bottom"
-            app:srcCompat="@drawable/back"
+            app:layout_anchor="@+id/action_bar"
+            app:layout_anchorGravity="left"
+            app:srcCompat="@drawable/exit"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
@@ -130,7 +133,7 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomBar"
-        android:layout_width="wrap_content"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_margin="10dp"

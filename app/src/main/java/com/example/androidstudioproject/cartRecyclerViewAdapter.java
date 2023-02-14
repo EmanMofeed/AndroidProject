@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidstudioproject.model.Order;
 import com.example.androidstudioproject.model.anime;
 import com.squareup.picasso.Picasso;
 
@@ -24,6 +25,7 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
     private ArrayList<anime> cartAnime;
     private TextView totalTextView;
     private TextView totalAfterFeeTextView;
+    public static double totalPriceAfterFee;
 
     //constructor
     public cartRecyclerViewAdapter(ArrayList<anime> cartAnime, TextView total, TextView totalPriceAfterFee) {
@@ -63,6 +65,7 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
 
         // save the initial Value of all cart & view in total items textView
         double total=calculateTotalPriceForAllCart();
+
         totalTextView.setText(total+"");
         calculateTotalPriceAfterFee(totalAfterFeeTextView);
         //animation for recyclerView items
@@ -87,15 +90,17 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
         });
 
         calculateTotalPriceOfEachItem(cartAnime.get(position).getPrice(),position,totalPriceForEach);
-
         calculateTotalPriceAfterFee(totalAfterFeeTextView);
+
 
     }
 
-    private void calculateTotalPriceAfterFee(TextView totalTextViewAfterFee) {
+    private double calculateTotalPriceAfterFee(TextView totalTextViewAfterFee) {
         double totalBeforeFee=calculateTotalPriceForAllCart();
         double totalAfterFee=totalBeforeFee+20;
         totalTextViewAfterFee.setText("$"+totalAfterFee);
+        totalPriceAfterFee=totalAfterFee;
+        return totalAfterFee;
     }
 
     private double calculateTotalPriceForAllCart() {
@@ -105,6 +110,8 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
             total+= value;
         }
         Log.d("total",total+"");
+
+
         return total;
     }
 
@@ -148,6 +155,12 @@ public class cartRecyclerViewAdapter extends RecyclerView.Adapter<cartRecyclerVi
     @Override
     public int getItemCount() {
         return cartAnime.size();
+    }
+
+    public void clear(){
+        cartAnime.clear();
+        notifyDataSetChanged();
+
     }
 
     //Inner class of ViewHolder

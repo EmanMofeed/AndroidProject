@@ -1,5 +1,7 @@
 package com.example.androidstudioproject;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ public class orderRecyclerAdapter extends RecyclerView.Adapter<orderRecyclerAdap
     private TextView orderIdTxt;
     private TextView orderDateTxt;
     private TextView orderAmountTxt;
+    private TextView orderCity;
 
     public orderRecyclerAdapter(ArrayList<Order> ordersArrayList) {
         this.ordersArrayList = ordersArrayList;
@@ -32,13 +35,31 @@ public class orderRecyclerAdapter extends RecyclerView.Adapter<orderRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull orderRecyclerAdapter.ViewHolder holder, int position) {
         CardView cardView=holder.cardView;
+        Handler handler = new Handler();
+        int pos=position;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                orderIdTxt=cardView.findViewById(R.id.orderIDTxt);
+                orderDateTxt = (TextView)cardView.findViewById(R.id.orderDateTxt);
+                orderAmountTxt =cardView.findViewById(R.id.orderAmountTxt);
+                orderIdTxt.setText(ordersArrayList.get(pos).getOrderId()+"");
+                orderDateTxt.setText(ordersArrayList.get(pos).getOrderDate());
+                orderAmountTxt.setText(cartRecyclerViewAdapter.totalPriceAfterFee+"");
+                orderCity=cardView.findViewById(R.id.orderCityTxt);
+                orderCity.setText(ordersArrayList.get(pos).getCity());
+
+            }
+        }, 1000);
         //card items
-        orderIdTxt=cardView.findViewById(R.id.orderIDTxt);
-        orderDateTxt = (TextView)cardView.findViewById(R.id.orderDateTxt);
-        orderAmountTxt =cardView.findViewById(R.id.orderAmountTxt);
-        orderIdTxt.setText(ordersArrayList.get(position).getOrderId()+"");
-        orderDateTxt.setText(ordersArrayList.get(position).getOrderDate());
-        orderAmountTxt.setText(ordersArrayList.get(position).getOrderAmount()+"");
+//        orderIdTxt=cardView.findViewById(R.id.orderIDTxt);
+//        orderDateTxt = (TextView)cardView.findViewById(R.id.orderDateTxt);
+//        orderAmountTxt =cardView.findViewById(R.id.orderAmountTxt);
+//        orderIdTxt.setText(ordersArrayList.get(position).getOrderId()+"");
+//        orderDateTxt.setText(ordersArrayList.get(position).getOrderDate());
+//        orderAmountTxt.setText(cartRecyclerViewAdapter.totalPriceAfterFee+"");
+//        orderCity=cardView.findViewById(R.id.orderCityTxt);
+//        orderCity.setText(ordersArrayList.get(position).getCity());
 
 
     }

@@ -9,17 +9,23 @@
     tools:context=".ProductDetails">
 
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="199dp"
-        android:layout_height="62dp"
-        android:contentDescription="@string/app_name"
-        android:foregroundGravity="center"
-        android:onClick="openHomePage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="199dp"
+            android:layout_height="62dp"
+            android:contentDescription="@string/app_name"
+            android:layout_gravity="center"
+            android:onClick="openHomePage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+
+
+
+
+
 
     <ScrollView
         android:id="@+id/scrollView3"

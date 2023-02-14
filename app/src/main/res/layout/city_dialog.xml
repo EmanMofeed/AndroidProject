@@ -44,6 +44,7 @@
         android:ems="10"
         android:hint="enter your city"
         android:inputType="textPersonName"
+        android:text=" "
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/enterBtn"
         app:layout_constraintStart_toEndOf="@+id/textView3"

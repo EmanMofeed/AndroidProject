@@ -49,8 +49,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/anime_recycler"
-        android:layout_width="370dp"
-        android:layout_height="514dp"
+        android:layout_width="364dp"
+        android:layout_height="459dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="21dp"
         android:background="#EFE8F1"
